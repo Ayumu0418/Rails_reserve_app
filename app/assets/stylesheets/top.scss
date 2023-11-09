@@ -1,0 +1,32 @@
+hero {
+  position: relative;
+}
+
+hero .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -800px;
+}
+
+hero .copy h1 {
+  color: white;
+  font-size: 72px;
+  text-align: center;
+  width: 100%;
+}
+
+section ul .area_list {
+  display: flex;
+  justify-content: space-between;
+}
+
+// section ul .area_list li {
+// }
+
+section ul .area_list li img {
+  height: 455px;
+  width: 380px;
+  border-radius: 5%;
+}

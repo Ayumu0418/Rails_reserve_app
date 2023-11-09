@@ -5,12 +5,41 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header_container">
+        <a class="top_logo" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="top_logo">
+        </a>
+        <ul>
+          <li><% if Current.user %>
+          <h1>こんにちは、<%= Current.user.user_name %>さん</h1>
+          <% end %></li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+					<% if Current.user %>
+						<li class="nav-item">
+								<%= link_to Current.user.user_name, class: 'nav-link '%>
+						</li>
+						<li class="nav-item">
+								<%= link_to "ログアウト", logout_path, method: :delete, class: 'nav-link' %>
+						</li>
+						<% else %>
+						<li class="nav-item">
+								<%= link_to "ログイン", login_path, class: 'nav-link' %></li>
+						<li class="nav-item">
+								<%= link_to "新規登録", signup_path, class: "button signup_button" %></li>
+					<% end  %>
+				</ul>
+      </div>
+    </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer></footer>
   </body>
 </html>
