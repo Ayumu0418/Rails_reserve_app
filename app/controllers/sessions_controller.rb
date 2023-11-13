@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+
   def create
+
     user = User.find_by(email: params[:email])
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -15,9 +17,11 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     Current.user = nil
+
     session[:user_id] = nil
+    # ↑この行追加でdestroyアクション正常動作
 
     flash[:success] = "ログアウトしました。"
-    redirect_to root_path
+    redirect_to root_path(logout: true) 
   end
 end

@@ -1,13 +1,17 @@
 <hero>
-    <img class="top_hero_background_image" src="https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg" alt="背景画像">
-    <div class="content">
-      <div class="copy">
-        <h1>Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
-      </div>
-      <div class="search">
+  <% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
 
-      </div>
+  <img class="top_hero_background_image" src="https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg" alt="背景画像">
+  <div class="content">
+    <div class="copy">
+      <h1>Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
     </div>
+    <div class="search">
+
+    </div>
+  </div>
 </hero>
 <section>
   <div class = "lead">
@@ -18,7 +22,7 @@
         <li class="tokyo">
           <a class="reccomend_area" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg
           " alt="tokyo"></a>
-          <span class="reccomend_area_tokyo東京</span>
+          <span class="reccomend_area_tokyo>東京</span>
         </li>
         <li class="osaka">
           <a class="reccomend_area" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg

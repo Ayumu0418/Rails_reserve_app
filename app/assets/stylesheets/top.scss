@@ -8,6 +8,7 @@ hero .content {
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: -800px;
+  z-index: 2; 
 }
 
 hero .copy h1 {
@@ -15,15 +16,14 @@ hero .copy h1 {
   font-size: 72px;
   text-align: center;
   width: 100%;
+  // position: absolute;
+  // z-index: 3; 
 }
 
 section ul .area_list {
   display: flex;
   justify-content: space-between;
 }
-
-// section ul .area_list li {
-// }
 
 section ul .area_list li img {
   height: 455px;

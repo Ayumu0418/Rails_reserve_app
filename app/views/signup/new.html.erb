@@ -1,19 +1,30 @@
-<h1>this is signup form</h1>
-<%= form_with model: @user, url: signup_path do |form| %>
-  
-<% if form.object.errors.any? %>
-  <div class="alert alert-danger">
-    <% form.object.errors.full_messages.each do |message|  %>
-      <div>
-        <%= message %>
-      </div>
-    <% end  %>
+<div class = "signup_form"> 
+  <div class = "signup_form_container">
+    <h2>新規登録</h2>
+    <%= form_with model: @user, url: signup_path do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="alert alert-danger">
+          <% form.object.errors.full_messages.each do |message|  %>
+            <div>
+              <%= message %>
+            </div>
+          <% end  %>
+        </div>
+      <% end %>
+    <ul class = "signup_form_ul">
+      <h4>ユーザー名</h4>
+      <%= form.text_field :user_name %>
+      <h4>メールアドレス</h4>
+      <%= form.text_field :email %>
+      <h4>パスワード</h4>
+      <%= form.password_field :password %>
+      <h4>確認用パスワード</h4>
+      <%= form.password_field :password_confirmation %>
+      <li class="signup_form_button">
+      <%= form.submit %>
+      <%= link_to "アカウントをお持ちの方はログイン", login_path, class: 'nav-link' %>
+      </li>
+    </ul>
+    <% end %>
   </div>
-<% end %>
-
-  <%= form.text_field :user_name %>
-  <%= form.text_field :email %>
-  <%= form.password_field :password %>
-  <%= form.password_field :password_confirmation %>
-  <%= form.submit %>
-<% end %>
+</div>

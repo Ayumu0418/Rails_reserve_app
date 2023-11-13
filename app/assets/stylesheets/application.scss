@@ -1,4 +1,5 @@
 @import 'top';
+@import 'signup';
 
 body {
   margin: 0;
@@ -12,7 +13,7 @@ header {
 .header_container {
   display: flex;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 24px;
 }
 
 .header_container .top_logo {
@@ -26,12 +27,31 @@ header {
   height: auto;
 }
 
-.header_container ul {
-  display: flex;
-  gap: 24px;
+.avatar_image {
+  border-radius: 50%;
 }
 
-.header_container ul li {
+.header_container #dropdown_button {
+  background: #1c1d3b;
+}
+.header_container #dropdown_button.button span {
+  display: flex;
+}
+
+.header_container #dropdown_button.button span li  {
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  color: white;
+}
+
+.header_container .dropdown_menu .dropdown_content {
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.header_container ul  {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,12 +59,22 @@ header {
   list-style: none;
 }
 
-.header_container ul li .button {
+
+
+.header_container .login {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  padding-right: 24px;
+}
+
+.header_container .signup_button {
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   background: red;
+  list-style: none;
   height: 40px;
   width: 92px;
   border-radius: 4px;
@@ -52,8 +82,50 @@ header {
   text-decoration: none;
 }
 
-footer {
+footer .header_container {
+  display: flex;
+  flex-direction: column;
   background: #1c1d3b;
-  width: 100%;
-  height: 400px;
+  margin: 0;
+  // width: 100%;
+  // height: 400px;
+}
+
+footer .header_container small{
+  color: white;
+}
+
+// ドロップボタン関係
+.dropdown_menu {
+  display: none;
+}
+
+.dropdown_content {
+  width: 160px;
+  text-align: center;
+}
+
+.is_active {
+  z-index: 3; 
+  display: block;
+  transform: translateX(100%);
+  transform: translateY(10%);
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+// ※top.scssより
+hero .top_hero_background_image {
+  position: relative; 
+  z-index: 1;
 }

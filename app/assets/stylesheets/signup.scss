@@ -1,3 +1,28 @@
-// Place all the styles related to the signup controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.signup_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightgray;
+}
+
+.signup_form .signup_form_container {
+  background: white;
+  width: 550px;
+  height: 700px;
+}
+
+.signup_form .signup_form_container h2 {
+  text-align: center;
+}
+
+.signup_form_container .signup_form_ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup_form_container .signup_form_ul .signup_form_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

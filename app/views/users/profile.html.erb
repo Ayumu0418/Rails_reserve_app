@@ -1,0 +1,24 @@
+<h2>設定</h2>
+<li class="nav-item">
+<%= link_to "アカウント", account_path, class: 'nav-link' %>
+<%= link_to "プロフィール", profile_path, class: 'nav-link' %>
+</li>
+
+<h2>プロフィール</h2>
+<%= link_to "編集", edit_profile_path, class: 'nav-link' %>
+
+<li class="nav-item">
+  <strong>アイコン画像:</strong> 
+  <% if Current.user.image.attached? %>
+    <%= image_tag Current.user.image.variant(resize: '40x40'), class: "avatar_image" %>
+  <% else %>
+    <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', size: '40x40' %>
+  <% end %>
+</li>
+
+<li class="nav-item">
+  <strong>名前:</strong> <%= Current.user.user_name %>
+</li>
+<li class="nav-item">
+  <strong>自己紹介:</strong> <%= Current.user.introduction %>
+</li>
