@@ -1,3 +1,20 @@
-// Place all the styles related to the reservations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+table thead tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+table thead tr th {
+  width: 300px;
+  padding: 0 40px;
+}
+
+tbody tr  {
+  display: flex;
+  flex-direction: column;
+}
+
+tbody tr td {
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}

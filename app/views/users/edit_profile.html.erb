@@ -15,7 +15,8 @@
     <%= link_to "アカウント", account_path, class: 'nav-link' %>
     <%= link_to "プロフィール", profile_path, class: 'nav-link' %>
   </li>
-
+  
+  <div class="form-group">
     <%= form.label :アイコン画像 %>
     <% if Current.user.image.attached? %>
       <%= image_tag Current.user.image.variant(resize: '40x40'), class: "avatar_image" %>

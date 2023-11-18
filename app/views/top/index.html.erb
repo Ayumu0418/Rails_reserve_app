@@ -9,7 +9,10 @@
       <h1>Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
     </div>
     <div class="search">
-
+      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search-form" do |f| %>
+      <%= f.text_field :keyword, placeholder: "エリア名を入力", class: "search-input" %>
+      <%= f.submit "検索", class: "search_button" %>
+      <% end %>
     </div>
   </div>
 </hero>
@@ -28,7 +31,6 @@
           <a class="reccomend_area" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg
           " alt="osaka"></a>
           <span class="reccomend_area_osaka>大阪</span>
-          <h4>大阪</h4>
         </li>
         <li class="kyoto">
           <a class="reccomend_area" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg" alt="kyoto"></a>
@@ -37,8 +39,7 @@
         <li class="sapporo">
           <a class="reccomend_area" href="http://localhost:3000/"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg
           " alt="sapporo"></a>
-          <span class="reccomend_area_sapporo>札幌
-          </span>
+          <span class="reccomend_area_sapporo>札幌</span>
         </li>
     </div>
   </ul>

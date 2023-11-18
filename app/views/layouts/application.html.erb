@@ -61,10 +61,19 @@
 
 						<div class="dropdown_menu" id="dropdown_menu" role="menu">
 							<div class="dropdown_content">
-								<a href="account" class="dropdown_item is_active">
+								<a href="<%= new_path %>" class="dropdown_item is_active">
+								施設の新規登録
+								</a>
+								<a href="<%= reservations_path %>" class="dropdown_item is_active">
+									予約一覧
+								</a>
+								<a href="<%= rooms_path %>" class="dropdown_item is_active">
+									施設一覧
+								</a>
+								<a href="<%= account_path %>" class="dropdown_item is_active">
 									アカウント設定
 								</a>
-								<a href="logout" class="dropdown_item is_active">
+								<a href="<%= logout_path %>" class="dropdown_item is_active">
 									ログアウト
 								</a>
 							</div>
