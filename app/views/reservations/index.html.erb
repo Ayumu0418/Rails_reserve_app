@@ -32,7 +32,7 @@
             <%= number_to_currency(room.hotel_price * reservation.people * (reservation.end - reservation.start).to_i, unit: "円", format: "%n%u",precision: 0) %>
             <%= reservation.start %>
             <%= reservation.end %>
-            <%= reservation.updated_at %>
+            <%= I18n.l(reservation.updated_at, format: :default) %>
             <%= link_to "編集", edit_reservation_path(reservation), class: "edit_reservation" %>
             <%= button_to "削除", reservation, method: :delete, onclick: "return confirm('本当に削除しますか?');" %>
         </td>

@@ -53,7 +53,11 @@
     <tr class="submit_button">
       <td class="save_button">
         <div>
-          <%= f.submit "保存", class: "save" %>
+          <% if Current.user %>
+            <%= f.submit "予約する", class: "save" %>
+          <% else %>  
+            <%= link_to "ログイン", login_url, class: "login" %></li>
+          <% end %>
         </div>
       </td>
     </tr>

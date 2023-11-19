@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  
   def index
     @rooms = Room.with_attached_hotel_image.all
   end

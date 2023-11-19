@@ -1,42 +1,12 @@
-<h1>confirm</h1>
+<h1>予約内容の確認</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>画像</th>
-      <th>施設名</th>
-      <th>紹介文</th>
-      <th>合計料金</th>
-      <th>チェックイン</th>
-      <th>チェックアウト</th>
-      <th>予約確定日時</th>
-      <th>再予約</th>
-      <th>予約を削除</th>
-    </tr>
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-  </thead>
-  <tbody> 
-    <% @reservations.each do |reservation| %>
-      <tr>
-        <td> 
-          <% room = Room.find(reservation.room_id) %>
-            <% if room.hotel_image.attached? %>
-              <%= image_tag room.hotel_image.variant(resize: '200x200'), class: "hotel_image" %>
-            <% else %>
-              <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png', size: '280x200' %>
-            <% end %>
-            <%= room.hotel_name %>
-            <%= room.hotel_detail %>
-            <%= number_to_currency(room.hotel_price * reservation.people * (reservation.end - reservation.start).to_i, unit: "円", format: "%n%u",precision: 0) %>
-            <%= reservation.start %>
-            <%= reservation.end %>
-            <%= reservation.updated_at %>
-            <%= link_to "編集", edit_reservation_path(reservation), class: "edit_reservation" %>
-            <%= button_to "削除", reservation, method: :delete, onclick: "return confirm('本当に削除しますか?');" %>
-        </td>
-      </tr> 
-    <% end %>
-  </tbody>
-</table>
+<p>チェックイン: <%= @reservation.start %></p>
+<p>チェックアウト: <%= @reservation.end %></p>
+<p>日数: <%= (@reservation.end - @reservation.start).to_i %>日</p>
+<p>人数: <%= @reservation.people %>名</p>
+<p>お支払い金額: <%= number_to_currency((@room.hotel_price * @reservation.people * (@reservation.end - @reservation.start)).to_i, unit: "円", precision: 0, delimiter: ',', format: "%n %u") %></p>
+
+<h3>上記内容で正しければ「確定」ボタンを押してください。</h3>
+
+<%= link_to "予約を確定", root_path(@room, @reservation), method: :post %>
+<%= link_to "キャンセル", :back %>
