@@ -1,44 +1,53 @@
-<h1>Rooms#index</h1>
-<header>
-  <div class="search_area">
-    <%= form_with url: search_rooms_path, local: true, method: :get, class: "search-form" do |f| %>
-    <%= f.text_field :keyword_area, placeholder: "エリア名を入力", class: "search-input" %>
-  </div>
-  <div class="search_free">
-    <%= form_with url: search_rooms_path, local: true, method: :get, class: "search-form" do |f| %>
-    <%= f.text_field :keyword_free, placeholder: "キーワード名を入力", class: "search-input" %>
-    <%= f.submit "検索", class: "search_button" %>
-    <% end %>
-    <% end %>
+<header class="room_list">
+  <div class="room_list_serch_container"> 
+    <div class="search_area">
+      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search_form" do |f| %>
+      <%= f.text_field :keyword_area, placeholder: "  エリア名を入力", class: "search_input" %>
+    </div>
+    <div class="search_free">
+      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search_form" do |f| %>
+      <%= f.text_field :keyword_free, placeholder: "  キーワード名を入力", class: "search_input" %>
+      <%= f.submit "検索", class: "search_button" %>
+      <% end %><% end %>
+    </div>
   </div>
 </header>
-
+<div class="room_count">
+  <h3><%= "#{@rooms.count}件が見つかりました。" %></h3>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Hotel Name</th>
-      <th>Hotel Detail</th>
-      <th>Hotel Price</th>
-      <th>Hotel Address</th>
-      <th>Hotel Image</th>
-    </tr>
-  </thead>
   <tbody>
-    <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.hotel_name %></td>
-        <td><%= room.hotel_detail %></td>
-        <td><%= room.hotel_price %></td>
-        <td><%= room.hotel_address %></td>
-        <td>
-          <% if room.hotel_image.attached? %>
-            <%= image_tag room.hotel_image.variant(resize: '40x40'), class: "hotel_image" %>
-          <% else %>
-            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png', size: '40x40' %>
-          <% end %>
-        </td>
-        <td><%= link_to "詳細", room %></td>
-      </tr>
-    <% end %>
+    <div class="room_list_container"> 
+        <% @rooms.each do |room| %>
+          <tr>
+            <td class="room_info">
+                <div class="room_info_container">
+                  <div class="hotel_image">
+                    <% if room.hotel_image.attached? %>
+                      <%= image_tag room.hotel_image, class: "hotel_image" %>
+                    <% else %>
+                      <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png' %>
+                    <% end %>
+                  </div>
+                  <div class="room_sentence_container">
+                    <div class="hotel_name"><%= room.hotel_name %></div>
+                    <div class="hotel_address">
+                      <%= truncate(room.hotel_address, omision: "...", length: 60, separator: nil) %>
+                    </div>
+                    <div class="hotel_detail">
+                     <%= truncate(room.hotel_detail, omision: "...", length: 60, separator: nil) %>
+                    </div>
+                    <div class="price_and_detail_container">
+                      <div class="hotel_price">
+                        <%= number_to_currency(room.hotel_price.to_i, unit: "円", precision: 0, delimiter: ',', format: "%n %u") + "〜" %>
+                      </div>
+                      <div class="link_to_detail"><%= link_to "詳細はこちら", room %></div>
+                    </div>
+                  </div>
+                </div>
+            </td>
+          </tr>
+        <% end %>
+      </div>
   </tbody>
 </table>

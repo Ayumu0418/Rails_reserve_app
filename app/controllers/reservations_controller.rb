@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all
+    @reservations = Current.user.reservations
     @rooms = Room.with_attached_hotel_image.all
   
     if params[:room_id].present?
@@ -15,8 +15,8 @@ class ReservationsController < ApplicationController
         puts "Room: #{@room.inspect}"
       end
     else
-      # params[:room_id] が存在しない場合の処理
       puts "Room ID not present"
+      # params[:room_id] が存在しない場合の処理
     end
   end
 
@@ -27,21 +27,25 @@ class ReservationsController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @reservation = @room.reservations.build(reservation_params)
+    @reservation.user_id = session[:user_id]
+     # ログイン中のユーザーのIDを設定
   
     if [:start, :end, :people].any? { |attr| reservation_params[attr].blank? }
-        flash[:error] = "全ての項目を入力してください。"
-        puts "DEBUG: 空欄の場合"
-        render "rooms/show"
+      flash[:error] = "全ての項目を入力してください。"
+      puts "DEBUG: 空欄の場合"
+      render "rooms/show"
     elsif @reservation.save
-        # 保存が成功した場合、確認画面を表示する
-        puts "DEBUG: 保存成功"
-        render "confirm"
+      # 保存が成功した場合、確認画面を表示する
+      puts "DEBUG: 保存成功"
+      render "confirm"
     else
-        flash[:error] = "予約に失敗しました。入力項目を確認してください。"
-        puts "DEBUG: 保存失敗"
-        render "rooms/show"
+      flash[:error] = "予約に失敗しました。入力項目を確認してください。"
+      puts "DEBUG: 保存失敗"
+      puts @reservation.errors.full_messages
+      render "rooms/show"
     end
   end
+  
 
   def confirm
     # 確認画面の表示

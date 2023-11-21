@@ -1,3 +1,136 @@
-// Place all the styles related to the rooms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.room_list {
+  background: lightgray;
+}
+
+.room_list .room_list_serch_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 120px;
+}
+
+.room_list .room_list_serch_container .search_free  {
+  display: flex;
+  gap: 16px;
+}
+
+.room_list .room_list_serch_container .search_area .search_input, .search_free .search_input {
+  padding: 0;
+  border: 0;
+  height: 40px;
+  width: 250px;
+}
+
+.room_list .room_list_serch_container .search_free .search_button {
+  color: black;
+  list-style: none;
+  height: 40px;
+  width: 92px;
+  border-radius: 4px;
+  text-align: center;
+  border: none;
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+body .room_count h3 {
+  padding-left: 40px;
+}
+
+
+tbody {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+tbody .room_list_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+tbody tr {
+ background: lightyellow;
+ border-radius: 4px;
+ max-width: 384px;
+}
+
+tbody .room_list_container .room_info {
+  display: flex;
+}
+
+tbody .room_list_container .room_info .room_info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+}
+
+tbody tr .room_info .room_info_container .hotel_image img {
+  border-radius: 4px;
+  aspect-ratio: 16/9;
+  width: 384px;
+  height: 216px;
+  object-fit: cover;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container {
+  padding: 16px;
+  height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .hotel_name {
+  font-size: 24px;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .hotel_address {
+  font-size: 14px;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .hotel_address {
+  font-size: 18px;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: auto; 
+  gap: 80px;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .hotel_price {
+  display: flex;
+  align-items: center;
+  color: red;
+  font-size: 20px;
+  width: 160px;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  list-style: none;
+  height: 40px;
+  width: 116px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail a {
+  color: white;
+  text-decoration: none;
+}
+
+// ↓show.html
+

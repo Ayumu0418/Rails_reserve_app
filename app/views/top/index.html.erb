@@ -1,18 +1,18 @@
 <hero>
-  <% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-  <% end %>
-
-  <img class="top_hero_background_image" src="https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg" alt="背景画像">
-  <div class="content">
-    <div class="copy">
-      <h1>Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
-    </div>
-    <div class="search">
-      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search-form" do |f| %>
-      <%= f.text_field :keyword_area, placeholder: "エリア名を入力", class: "search-input" %>
-      <%= f.submit "検索", class: "search_button" %>
-      <% end %>
+  <div class="background_image">
+    <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <div class="content">
+      <div class="copy">
+        <h1>Potepan Shareで<br>まだ体験したことのない<br>旅をしよう</h1>
+      </div>
+      <div class="search_container">
+        <%= form_with url: search_rooms_path, local: true, method: :get, class: "search_form" do |f| %>
+        <%= f.text_field :keyword_area, placeholder: "  エリア名を入力", class: "search_input" %>
+        <%= f.submit "検索", class: "search_button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </hero>
@@ -21,26 +21,30 @@
     <h2>おすすめのエリア</h2>
   </div>
   <ul>
-    <div class="area_list">
-        <li class="tokyo">
-          <a class="reccomend_area" href="rooms/search?keyword_area=東京&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg
-          " alt="tokyo"></a>
-          <span class="reccomend_area_tokyo>東京</span>
-        </li>
-        <li class="osaka">
-          <a class="reccomend_area" href="rooms/search?keyword_area=大阪&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg
-          " alt="osaka"></a>
-          <span class="reccomend_area_osaka>大阪</span>
-        </li>
-        <li class="kyoto">
-          <a class="reccomend_area" href="rooms/search?keyword_area=京都&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg" alt="kyoto"></a>
-          <span class="reccomend_area_kyoto>京都</span>
-        </li>
-        <li class="sapporo">
-          <a class="reccomend_area" href="rooms/search?keyword_area=札幌&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg
-          " alt="sapporo"></a>
-          <span class="reccomend_area_sapporo>札幌</span>
-        </li>
+    <div class="area_list_container">
+      <li class="tokyo">
+        <a class="reccomend_area" href="rooms/search?keyword_area=東京&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/tokyo.jpg
+        " alt="tokyo">
+          <span class="reccomend_area_region">東京<br>Tokyo</span>
+        </a>
+      </li>
+      <li class="osaka">
+        <a class="reccomend_area" href="rooms/search?keyword_area=大阪&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/osaka.jpg
+        " alt="osaka">
+          <span class="reccomend_area_region">大阪<br>Osaka</span>
+        </a>
+      </li>
+      <li class="kyoto">
+        <a class="reccomend_area" href="rooms/search?keyword_area=京都&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/kyoto.jpg" alt="kyoto">
+        <span class="reccomend_area_region">京都<br>Kyoto</span>
+        </a>
+      </li>
+      <li class="sapporo">
+        <a class="reccomend_area" href="rooms/search?keyword_area=札幌&keyword_free=&commit=検索"><img src="https://rails-02-sample.herokuapp.com/assets/home/recommend-area/sapporo.jpg
+        " alt="sapporo">
+        <span class="reccomend_area_region">札幌<br>Sapporo</span>
+        </a>
+      </li>
     </div>
   </ul>
 </section>

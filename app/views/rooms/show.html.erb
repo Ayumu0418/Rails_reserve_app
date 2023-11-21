@@ -1,11 +1,24 @@
-<h1>show#index</h1>
-
-<div class = "detail_container">
-    <div class = "new_h3">
-      <div>
-        <p><%= link_to "← 一覧に戻る", :rooms, class:"back_button" %></p>
-      </div>
+<header class="room_list">
+  <div class="room_list_serch_container"> 
+    <div class="search_area">
+      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search_form" do |f| %>
+      <%= f.text_field :keyword_area, placeholder: "  エリア名を入力", class: "search_input" %>
     </div>
+    <div class="search_free">
+      <%= form_with url: search_rooms_path, local: true, method: :get, class: "search_form" do |f| %>
+      <%= f.text_field :keyword_free, placeholder: "  キーワード名を入力", class: "search_input" %>
+      <%= f.submit "検索", class: "search_button" %>
+      <% end %><% end %>
+    </div>
+  </div>
+</header>
+<div class = "new_h3">
+  <div>
+    <p><%= link_to "← 一覧に戻る", :rooms, class:"back_button" %></p>
+  </div>
+</div>
+<div class = "detail_container">
+    
 
   <td>
     <% if @room.hotel_image.attached? %>
