@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'reservations/index'
   get 'rooms/index'
   get 'rooms/new_room'
+  get 'rooms/myroom_index'
   get 'rooms/show'
   get 'rooms/search'
   get 'users/index'
@@ -13,11 +14,16 @@ Rails.application.routes.draw do
   get 'reservations/reservations'
   
   resources :rooms do
-    resources :reservations
-    
+    resources :reservations 
       collection do
         get "search"
       end
+  end
+
+  resources :reservations do
+    collection do
+      post "confirm_create" 
+    end 
   end
 
   resources :reservations, param: :id
@@ -41,6 +47,9 @@ Rails.application.routes.draw do
 
   get "rooms", to: "rooms#index"
   post "rooms", to: "rooms#create"
+
+  get "myroom_index", to: "rooms#myroom_index"
+
   get "new", to: "rooms#new_room"
 
   get "show", to: "rooms#show"

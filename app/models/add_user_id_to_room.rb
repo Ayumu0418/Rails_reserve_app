@@ -1,0 +1,2 @@
+class AddUserIdToRoom < ApplicationRecord
+end

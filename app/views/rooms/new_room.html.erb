@@ -1,65 +1,59 @@
-<h1>rooms#new_room</h1>
-
-<div class = "new_room">
-  <div class = "registration_form">
-    <h3>新規登録</h3>
-      
-    <%= form_with model: @room do |f| %>
-      
-      <table class = "detail_form">
-          <div class = "new_list">
-            <% if @room.errors.any? %>
-              <h4>※入力した内容にエラーがあります</h4>
-            <% end %>
-            <tr class = "form hotel_name">
-              <th><%= f.label :hotel_name ,"施設名" %></th>
-              <td><%= f.text_field :hotel_name, placeholder: " 施設名を入力" %></td>
-              <td class = "error"><% if @room.errors.include?(:hotel_name) %>
-              <p style="color: red;"><%= @room.errors.full_messages_for(:hotel_name).first %>
-              <% end %></td>
-            </tr>
-            <tr class="new_list">
-              <th><%= f.label :hotel_detail, "施設詳細" %></th>
-              <td><%= f.text_field :hotel_detail %></td>
-              <td class="error">
-                <% if @room.errors.include?(:hotel_detail) %>
-                  <p style="color: red;"><%= @room.errors.full_messages_for(:hotel_detail).first %></p>
-                <% end %>
-              </td>
-            </tr>
-            <tr class="new_list">
-              <th><%= f.label :hotel_price, "料金" %></th>
-              <td><%= f.number_field :hotel_price %></td>
-              <td class="error">
-                <% if @room.errors.include?(:hotel_price) %>
-                  <p style="color: red;"><%= @room.errors.full_messages_for(:hotel_price).first %></p>
-                <% end %>
-              </td>
-            <tr class = "new_list">
-                <th><%= f.label :hotel_address,"住所" %></th>
-                <td><%= f.text_area :hotel_address, size: "780x8", placeholder: " 住所を入力" %></td>
-                <td class = "error"><% if @room.errors.include?(:hotel_address) %>
-              <p style="color: red;"><%= @room.errors.full_messages_for(:hotel_address).first %>
-              <% end %></td>
-            </tr>
-
-            <tr class = "new_list">
-              <th><%= f.label :hotel_image,"施設画像" %></th>
-              <%= f.file_field :hotel_image, accept: 'image/*' %>
-              </td>
-            </tr>
-
-        <tr class = "new_list">
-          <td class = "save_button">
-            <div class = "cancel_button">
-              <%= link_to "キャンセル", :rooms, class: "button" %>
-            </div>
-            <div>
-              <%= f.submit "保存",  class: "save" %>
-            </div>
-          </td>
+<div class = "registration_form">
+  <h2>新規登録</h2>
+    
+  <%= form_with model: @room do |f| %>
+    <table class = "detail_form">
+      <div class = "new_list">
+        <% if @room.errors.any? %>
+          <h4 style="color: red;>※入力した内容にエラーがあります</h4>
+        <% end %>
+        <tr class = "form hotel_name">
+          <th><%= f.label :hotel_name ,"施設名" %></th>
+          <td><%= f.text_field :hotel_name, placeholder: " 施設名を入力" %></td>
         </tr>
-      </table>
-    <% end %>
-  </div>
+        <tr class = "error">
+          <% if @room.errors.include?(:hotel_name) %>
+             <td style="color: red;"><%= @room.errors.full_messages_for(:hotel_name).first %></td>
+          <% end %>
+        </tr>
+        <tr class="new_list">
+          <th><%= f.label :hotel_detail, "施設詳細" %></th>
+          <td><%= f.text_area :hotel_detail, placeholder: " 施設詳細を入力"  %></td>
+        </tr>
+        <tr class="error">
+          <% if @room.errors.include?(:hotel_detail) %>
+            <td style="color: red;"><%= @room.errors.full_messages_for(:hotel_detail).first %></td>
+          <% end %>
+        </tr>
+        <tr class="new_list">
+          <th><%= f.label :hotel_price, "料金" %></th>
+          <td><%= f.number_field :hotel_price, placeholder: " １日あたりの料金を入力"  %></td>
+        </tr>
+        <tr class="error">
+          <% if @room.errors.include?(:hotel_price) %>
+            <td style="color: red;"><%= @room.errors.full_messages_for(:hotel_price).first %></td>
+          <% end %>
+        </tr>
+        <tr class = "new_list">
+          <th><%= f.label :hotel_address,"住所" %></th>
+          <td><%= f.text_field :hotel_address, placeholder: " 住所を入力" %></td>
+        </tr>
+        <tr class="error">
+          <% if @room.errors.include?(:hotel_address) %>
+            <td style="color: red;"><%= @room.errors.full_messages_for(:hotel_address).first %></td>
+          <% end %>
+        </tr>
+        <tr class = "new_list_image">
+          <th><%= f.label :hotel_image,"施設画像" %></th>
+          <td><%= f.file_field :hotel_image, accept: 'image/*' %></td>
+        </tr>
+        <tr class = "new_list_save_button">
+          <td><%= f.submit "保存",  class: "save" %></td>
+        </tr>
+        <tr class = "new_list_cancel_button">
+          <td><%= link_to "キャンセル", :rooms, class: "button" %></td>
+        </tr>
+      </div>
+    </table>
+  <% end %>
 </div>

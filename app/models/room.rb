@@ -1,11 +1,12 @@
 class Room < ApplicationRecord
+  belongs_to :user
+  
   has_many :reservations, dependent: :destroy
-
   has_one_attached :hotel_image
 
   validates :hotel_name, presence: true
   validates :hotel_detail, presence: true
-  validates :hotel_price, presence: true
+  validates :hotel_price, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :hotel_address, presence: true
 
   def self.search(keyword_free, keyword_area)

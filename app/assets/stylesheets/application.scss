@@ -1,11 +1,16 @@
 @import 'top';
+@import 'users';
 @import 'signup';
 @import 'rooms';
+@import 'sessions';
+@import 'reservations';
 
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  min-width: fit-content;
 }
 
 .container table {
@@ -127,7 +132,7 @@ footer .footer_container small{
 }
 
 .is_active {
-  z-index: 3; 
+  z-index: 4; 
   display: block;
   transform: translateX(100%);
   transform: translateY(10%);

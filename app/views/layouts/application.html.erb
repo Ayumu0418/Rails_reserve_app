@@ -2,13 +2,11 @@
 <html>
   <head>
     <title>ReserveApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
 		<script>
 			$(document).ready(function () {
 				// ドロップダウンメニューのボタン
@@ -67,8 +65,8 @@
 								<a href="<%= reservations_path %>" class="dropdown_item is_active">
 									予約一覧
 								</a>
-								<a href="<%= rooms_path %>" class="dropdown_item is_active">
-									施設一覧
+								<a href="<%= myroom_index_url %>" class="dropdown_item is_active">
+									登録した施設一覧
 								</a>
 								<a href="<%= account_path %>" class="dropdown_item is_active">
 									アカウント設定
@@ -82,9 +80,11 @@
 				<% else %>
 				<ul>
 					<li class="not_login_button">
-							<%= link_to "ログイン", login_url, class: "login" %></li>
+							<%= link_to "ログイン", login_url, class: "login" %>
+					</li>
 					<li class="registration">
-							<%= link_to "新規登録", signup_url, class: "button signup_button" %></li>
+							<%= link_to "新規登録", signup_url, class: "button signup_button" %>
+					</li>
 				</ul>
 				<% end  %>
 			</div>

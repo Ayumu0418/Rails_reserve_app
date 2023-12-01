@@ -34,12 +34,11 @@
   cursor: pointer;
 }
 
-body .room_count h3 {
-  padding-left: 40px;
+.room_count {
+  padding: 0 24px;
 }
 
-
-tbody {
+table .room_list_content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -48,29 +47,29 @@ tbody {
   padding: 0 20px;
 }
 
-tbody .room_list_container {
+table .room_list_content .room_list_container {
   display: flex;
   flex-direction: column;
   gap: 10px; 
 }
 
-tbody tr {
- background: lightyellow;
+.container table .room_list_content .room_list {
+ background: rgb(255, 248, 241);
  border-radius: 4px;
  max-width: 384px;
 }
 
-tbody .room_list_container .room_info {
+table .room_list_content .room_list_container .room_info {
   display: flex;
 }
 
-tbody .room_list_container .room_info .room_info_container {
+table .room_list_content .room_list_container .room_info .room_info_container {
   display: flex;
   flex-direction: column;
   gap: 5px; 
 }
 
-tbody tr .room_info .room_info_container .hotel_image img {
+table .room_list_content tr .room_info .room_info_container .hotel_image img {
   border-radius: 4px;
   aspect-ratio: 16/9;
   width: 384px;
@@ -78,36 +77,34 @@ tbody tr .room_info .room_info_container .hotel_image img {
   object-fit: cover;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container {
   padding: 16px;
   height: 180px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .hotel_name {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .hotel_name {
   font-size: 24px;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .hotel_address {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .hotel_address {
   font-size: 14px;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .hotel_address {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .hotel_address {
   font-size: 18px;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .price_and_detail_container {
   display: flex;
   justify-content: space-between;
-
   margin-top: auto; 
   gap: 80px;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .hotel_price {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .hotel_price {
   display: flex;
   align-items: center;
   color: red;
@@ -115,7 +112,7 @@ tbody tr .room_info .room_info_container .room_sentence_container .price_and_det
   width: 160px;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,10 +124,205 @@ tbody tr .room_info .room_info_container .room_sentence_container .price_and_det
   text-align: center;
 }
 
-tbody tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail a {
+table .room_list_content tr .room_info .room_info_container .room_sentence_container .price_and_detail_container .link_to_detail a {
   color: white;
   text-decoration: none;
 }
 
-// ↓show.html
+// show.html
+body .container .center_container {
+  display: flex;
+  justify-content: center;
+}
 
+body .container .show_contents {
+  padding: 0 40px;
+}
+
+body .container .show_contents .back_to_room_index div p .back_button {
+  color: blue;
+  text-decoration: none;
+}
+
+body .container .show_contents .detail_container {
+  display: flex;
+  gap: 40px;
+}
+
+body .container .show_contents .detail_container .reserve_form_sentence {
+  width: 100%;
+}
+
+body .container .show_contents .detail_container img {
+  width:  384px;
+  height: 216px;
+}
+
+body .container .detail_container .reserve_form_container {
+  background: rgb(255, 248, 241);
+  width:  100%;
+  max-width: 600px;
+}
+
+body .container .detail_container .reserve_form_container tbody {
+  display: contents;
+}
+
+body .container .detail_container .reserve_form_container tbody .new_list_container  {
+
+  justify-content: space-between;
+  display: flex;
+}
+
+body .container .detail_container .reserve_form_container table {
+  display: flex;
+}
+
+body .container .detail_container .reserve_form_container td form .check_in_form, .check_out_form, .people_form {
+  display: flex;
+  flex-direction: column;
+}
+
+body .container .detail_container .reserve_form_sentence .reserve_form_container tbody .new_list td {
+  display: inline-block
+}
+
+body .container .detail_container .reserve_form_container .reserve_detail_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  background: white;
+  max-width: 100%;
+  height: 100px;
+}
+
+body .container .detail_container .reserve_form_container .reserve_detail_container td form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .container .detail_container .reserve_form_container .reserve_detail_container td form div {
+  padding-right: 20px;
+  max-width: 140px;
+}
+
+tbody .submit_button .save_button .show_reserve_button .save {
+  width: 92%;
+}
+
+tbody .submit_button .save_button .show_reserve_button .login, .show_reserve_button .save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px 20px;
+  border-radius: 4px;
+  height: 48px;
+  background-color: red; 
+  color: white; 
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+// new_room.html
+.registration_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration_form form {
+  max-width: 100%;
+  min-width: 75%;
+}
+
+.registration_form .detail_form {
+  display: flex;
+  align-items: center;
+}
+
+.registration_form .detail_form .new_list_image {
+  display: flex;
+}
+
+.registration_form .detail_form tr td {
+  padding: 0 0 20px 20px;
+}
+
+.registration_form .detail_form tr td input {
+  width: 100%;
+  max-width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.registration_form .detail_form tr td #room_hotel_address {
+  width: 100%;
+}
+
+.registration_form .detail_form .error {
+  display: flex;
+  text-align: center;
+}
+
+.registration_form .detail_form tr {
+  display:flex;
+  justify-content: space-between;
+}
+
+.registration_form .detail_form .new_list_image {
+  align-items: baseline;
+}
+
+.registration_form .detail_form tr th {
+  display:flex;
+  align-items: center;
+  padding-bottom: 20px;
+  min-width: 64px;
+}
+
+.registration_form .detail_form tbody {
+  width: 100%;
+}
+
+.registration_form .detail_form tr td {
+  width: 100%;
+}
+
+.registration_form .detail_form tr td textarea {
+  resize: vertical;
+  width: 100%;
+  height: 96px;
+}
+
+.new_list_save_button, .new_list_cancel_button {
+  display: flex;
+  justify-content: center;
+}
+
+.new_list_save_button td, .new_list_cancel_button td {
+  padding: 0 0 20px 84px!important;
+}
+
+// myroom_index.html
+.myroom_index_container {
+  padding: 40px;
+}
+
+.myroom_contents_container tr .hotel_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .myroom_contents_container tr .hotel_name, .myroom_contents_container tr .hotel_detail, .myroom_contents_container tr .hotel_price, .myroom_contents_container tr .hotel_created_time, .myroom_contents_container tr .hotel_detail_link {
+  text-align: center;
+}
+
+.myroom_contents_container tr .hotel_detail_link a {
+  text-decoration: none;
+  color: dodgerblue;
+}

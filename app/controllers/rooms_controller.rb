@@ -1,7 +1,12 @@
 class RoomsController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:new_room, :create]
+
   def index
     @rooms = Room.with_attached_hotel_image.all
+  end
+
+  def myroom_index
+    @myrooms = current_user.rooms.with_attached_hotel_image
   end
 
   def new_room
@@ -11,12 +16,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-
-
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.build(room_params)
 
     if params[:room][:hotel_image].present?
       @room.hotel_image.attach(params[:room][:hotel_image])
@@ -27,7 +30,7 @@ class RoomsController < ApplicationController
         redirect_to root_path, notice: "新しい施設を作成しました。"
       # create アクションは、ユーザーアカウントの作成を試みる。user_params メソッドを使用して、フォームから送信されたユーザーデータを取得し、User.new を使用して新しいユーザーオブジェクトを作成し、正常に保存された場合（バリデーションに通過した場合）、ユーザーはトップページにリダイレクトされ、notice メッセージが表示される。
     else
-        render :new_room
+      render :new_room
     end
   end
       # ユーザーオブジェクトの保存に失敗した場合（バリデーションエラーがある場合）、入力エラーメッセージを持つ新しいユーザーオブジェクトを使って new テンプレートを再表示する。

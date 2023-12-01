@@ -1,35 +1,49 @@
-<%= form_with model: Current.user, url: edit_path do |form| %>
-  <% if Current.user.errors.any? %>
-    <div class="alert alert-danger">
-      <% Current.user.errors.full_messages.each do |message|  %>
-        <div>
-          <%= message %>
+<div class="user_account_edit_container">
+  <%= form_with model: Current.user, url: edit_path do |form| %>
+    <% if Current.user.errors.any? %>
+      <div class="alert alert-danger">
+        <% Current.user.errors.full_messages.each do |message|  %>
+          <div>
+            <%= message %>
+          </div>
+        <% end  %>
+      </div>
+    <% end %>
+    <div class="user_container" style="padding: 0;">
+      <h2 style="padding: 0 40px;">設定</h2>
+      <div class="account_container" style="padding: 0 40px;">
+        <ul class="account_profile_container" style="justify-content: start;">
+          <li><%= link_to "アカウント", account_path, class: "account_link" %></li>
+          <li><%= link_to "プロフィール", profile_path, class: "profile_link" %></li>
+        </ul>
+        <div class="account_edit_info_container">
+          <div class="account_edit_container">
+            <h2>アカウント</h2>
+          </div>
+          <div class="account_info_container">
+            <ul class="user_email">
+              <li>メールアドレス</li> 
+              <li><%= form.text_field :email, placeholder: "メールアドレスを入力してください", class:"email_form" %></li>
+            </ul>
+            <ul class="user_password">
+              <li>変更後パスワード<br>※変更する場合のみ</li>
+              <li><%= form.password_field :password, placeholder: "変更後パスワードを入力", class:"password_form" %></li> 
+            </ul>
+            <ul class="user_password">
+              <li>確認用パスワード<br>※変更する場合のみ</li>
+              <li><%= form.password_field :password_confirmation, placeholder: "変更後パスワードをもう一度入力", class: "password_form" %></li> 
+            </ul>
+            <ul class="user_password">
+              <li>現在のパスワード</li>
+              <li><%= form.password_field :current_password, placeholder: "現在のパスワードを入力", class: "password_form" %></li> 
+            </ul>
+            <div class = "submit_button" style="display: flex;">
+              <%= form.submit "保存", class:"save_button" %>
+              <%= link_to "キャンセル", :root, class: "cancel_button" %>
+            </div>
+          </div>
         </div>
-      <% end  %>
+      </div>
     </div>
   <% end %>
-  <h2>設定</h2>
-  <li class="nav-item">
-    <%= link_to "アカウント", account_path, class: 'nav-link' %>
-    <%= link_to "プロフィール", profile_path, class: 'nav-link' %>
-  </li>
-  <div class="form-group">
-    <%= form.label :メールアドレス %>
-    <%= form.text_field :email, placeholder: "メールアドレスを入力してください", class: "form-control mb-3"  %>
-  </div>
-  <div class="form-group">
-    <%= form.label :変更後パスワード %>
-    <%= form.password_field :password, placeholder: "変更後パスワードを入力", class: "form-control mb-3"  %>
-  </div>
-  <div class="form-group">
-    <%= form.label :確認用パスワード %>
-    <%= form.password_field :password_confirmation, placeholder: "変更後パスワードをもう一度入力", class: "form-control mb-3"  %>
-  </div>
-  <div class="form-group">
-    <%= form.label :現在のパスワード %>
-    <%= form.password_field :current_password, placeholder: "変更前のパスワードを入力", class: "form-control mb-3"  %>
-  </div>
-  <div class = "submit_button">
-    <%= form.submit "保存", class:'btn btn-primary' %>
-    <%= link_to "キャンセル", :root, class: "button" %><% end %>
-  </div>
+</div>

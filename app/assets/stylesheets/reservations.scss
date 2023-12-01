@@ -1,20 +1,201 @@
-table thead tr {
-  display: flex;
-  justify-content: space-between;
-}
-
-table thead tr th {
-  width: 300px;
-  padding: 0 40px;
-}
-
-tbody tr  {
-  display: flex;
-  flex-direction: column;
-}
-
-tbody tr td {
+.reservation_notice {
   display: flex;
   align-items: center;
-  padding: 0 40px;
+  margin: 0;
+  width: 100%; 
+  height: 56px;
+  background: lightgray;
 }
+
+.reservation_lead {
+  padding-left: 20px;
+}
+
+.reservation_table .reservation_list {
+  display: block;
+  margin-left: 40px;
+}
+
+.reservation_table .reservation_list tr td .edit_reservation {
+  color: black;
+  text-decoration: none;
+}
+
+.reservation_table .reservation_list tr .td_hotel_name a  {
+  color: dodgerblue;
+  text-decoration: none;
+  text-align: center;
+}
+
+.reservations_table_colum th {
+  width: 150px;
+}
+
+.reservations_table_colum .hotel_image {
+  width: 280px;
+}
+
+.reservation_list tr {
+  display: flex;
+
+}
+
+.reservation_list tr td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // width: 150px;
+  gap: 12px;
+}
+
+.reservation_list tr td img , .reservation_list tr td .hotel_image {
+  border-radius: 4px;
+  aspect-ratio: 16/9;
+}
+
+.reservation_list tr .td_updated_at {
+  text-align: center;
+}
+
+// confirm.html
+
+ body .container .confirm_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body .container .confirm_container .confirm_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm_container .confirm_detail_container {
+  padding-bottom: 20px;
+}
+
+.confirm_button {
+  gap: 8px;
+}
+
+ .confirm_button form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.confirm_button form input, .save_button .edit_save_button .save, .new_list_save_button .save {
+  color: white; 
+  background: red;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  height: 48px;
+}
+
+.confirm_button form a, .cancel_button .button, .new_list_cancel_button .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  background: white;
+  border: 2px solid lightgray;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  height: 48px;
+
+}
+
+.reservation_table {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reservations_table_colum th {
+  width: 140px;
+}
+
+.reservations_table_colum .hotel_image {
+  width: 140px;
+}
+
+.reservation_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+}
+
+.reservation_list tr {
+  display: flex;
+}
+
+.reservation_list tr td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  gap: 12px;
+}
+
+.reservation_list tr td img, .reservation_list tr td .hotel_image {
+  border-radius: 4px;
+  aspect-ratio: 16/9;
+}
+
+// edit.html
+.edit_reserve_container {
+  display: flex;
+  flex-direction: column;
+  max-width: 768px;
+  margin: 0 auto; 
+}
+
+.edit_reserve_container table {
+  width: 100%;
+}
+
+.edit_reserve_container td {
+  width: 100%;
+}
+
+.edit_reserve_container td input {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.edit_reserve_container .reserve_detail_container .hotel_name_and_price {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 10px;
+  font-size: 24px;
+}
+
+.edit_reserve_container .reserve_detail_container .hotel_name_and_price td:last-child {
+  text-align: right;
+}
+
+.edit_reserve_container .reserve_detail_container .hotel_detail td {
+  padding: 20px 0;
+}
+
+.edit_check_in_label, .edit_check_out_label, .edit_people_label {
+  text-align: left;
+}
+
+.submit_button .save_button {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+
+

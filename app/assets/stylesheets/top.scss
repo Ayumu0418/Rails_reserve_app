@@ -7,6 +7,31 @@ hero .background_image {
   position: relative;
 }
 
+hero .notice {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 60%;
+  width: 100%; 
+  margin-top: -400px;
+  background: lightgray;
+}
+
+hero .background_image .notice {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 65%;
+  display: flex;
+  align-items: center;
+  width: 100%; 
+  height: 56px;
+  margin-top: -400px;
+  background: lightgray;
+}
+
 hero .content {
   position: absolute;
   z-index: 2;

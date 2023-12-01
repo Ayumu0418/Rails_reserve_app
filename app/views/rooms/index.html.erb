@@ -16,10 +16,10 @@
   <h3><%= "#{@rooms.count}件が見つかりました。" %></h3>
 </div>
 <table>
-  <tbody>
+  <tbody class="room_list_content">
     <div class="room_list_container"> 
         <% @rooms.each do |room| %>
-          <tr>
+          <tr class="room_list">
             <td class="room_info">
                 <div class="room_info_container">
                   <div class="hotel_image">

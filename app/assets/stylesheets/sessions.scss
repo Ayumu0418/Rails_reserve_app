@@ -1,3 +1,73 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.login_page {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white; 
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.login_container form ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+.login_container form ul input {
+  height: 36px;
+  width: 450px;
+}
+
+.login_container form li {
+  list-style: none;
+}
+
+.login_container form .registration {
+  margin-top: 14px;
+  border-radius: 4px;
+}
+
+.login_container form .registration {
+  border: 2px solid lightgray;
+  text-align: center;
+  height: 48px;
+}
+
+.login_container form .password li  {
+  width: 100%;
+}
+
+.login_container form li .login_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red; 
+  color: white; 
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.login_container form li .signup_button {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  color: black; 
+  text-decoration: none;
+  cursor: pointer;
+  height: 48px;
+  width: 100%;
+}
