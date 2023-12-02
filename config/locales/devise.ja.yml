@@ -26,12 +26,15 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-
       room:
         hotel_name: 施設名
         hotel_detail: 施設詳細
         hotel_price: 宿泊料金
         hotel_address: 住所
+      reservation:
+        start: チェックイン
+        end: チェックアウト
+        people: 人数
 
     models:
       user: ユーザー

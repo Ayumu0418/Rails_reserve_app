@@ -33,9 +33,10 @@ class SessionsController < ApplicationController
     Current.user = nil
 
     session[:user_id] = nil
-    # ↑この行追加でdestroyアクション正常動作
+    # user_IDリセット※↑追加でdestroyアクション正常動作
 
     flash[:success] = "ログアウトしました。"
     redirect_to root_path(logout: true) 
   end
+
 end

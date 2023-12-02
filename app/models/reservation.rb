@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :user
-
+  belongs_to :room
+  
   validates :start, presence: true
   validates :end, presence: true
   validates :people, presence: true, numericality: { only_integer: true, greater_than: 0 }
@@ -15,18 +16,7 @@ class Reservation < ApplicationRecord
 
   def start_end_check
     if start.present? && self.end.present? && start >= self.end
-      errors.add(:end, "は開始日より後の日付にしてください")
-      puts "DEBUG: チェックアウトの日付は開始日より後の日付にしてください。"
+      errors.add(:end, "はチェックインより後の日付にしてください")
     end
   end
-
-  # def blank_check
-  #   if reservation_params[:start].blank?
-  #     errors.add(:start, "の日付を入力してください")
-  #   elsif reservation_params[:end].blank?
-  #     errors.add(:end, "の日付を入力してください")
-  #   elsif reservation_params[:people].blank?
-  #     errors.add(:people, "を入力してください")
-  #   end
-  # end
 end
