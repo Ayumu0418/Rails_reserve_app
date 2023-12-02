@@ -1,0 +1,29 @@
+<div class="login_page"> 
+  <div class="login_container">
+    <h1>ログイン</h1>
+    <%= form_with url: login_path do |form| %>
+      <ul class="email">
+        <li>メールアドレス</li>
+        <li><%= form.text_field :email, placeholder: "メールアドレスを入力", class: "form-control mb-3" %></li>
+        <li><% if @user && @user.errors.include?(:email) %>
+            <small style="color: red;"><%= @user.errors.full_messages_for(:email).first %></small>
+            <% end %>
+        </li>
+      </ul>
+      <ul class="password">
+        <li>パスワード</li>
+        <li><%= form.password_field :password, placeholder: "パスワードを入力", class: "form-control mb-3" %></li>
+        <li><% if @user && @user.errors.include?(:password) %>
+            <small style="color: red;"><%= @user.errors.full_messages_for(:password).first %></small>
+            <% end %>
+        </li>
+      </ul>
+      <li class="login">
+        <%= form.submit "ログイン", class: "button login_button" %>
+      </li>
+      <li class="registration">
+        <%= link_to "新しいアカウントを作成", signup_url, class: "button signup_button" %>
+      </li>
+    <% end  %>
+  </div>
+</div>

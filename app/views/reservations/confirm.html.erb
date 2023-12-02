@@ -1,0 +1,18 @@
+  <div class="confirm_container">
+  <h1>予約内容の確認</h1>
+  <div class="confirm_detail_container">
+    <p>チェックイン: <%= @reservation.start.strftime('%Y/%m/%d') %></p>
+    <p>チェックアウト: <%= @reservation.end.strftime('%Y/%m/%d') %></p>
+    <p>日数: <%= (@reservation.end - @reservation.start).to_i %>日</p>
+    <p>人数: <%= @reservation.people %>名</p>
+        <p>お支払い金額: <%= number_to_currency((@room.hotel_price * @reservation.people * (@reservation.end - @reservation.start)).to_i, unit: "円", precision: 0, delimiter: ',', format: "%n %u") %></p>
+    <p>上記内容で正しければ「確定」ボタンを押してください。</p>
+    <div class="confirm_button">
+    <%= form_with model: [@room, @reservation], url: confirm_create_reservations_path(@room), method: :post do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit "予約を確定" %> 
+      <%= link_to "キャンセル", room_path(@room) %>
+    <% end %>    
+    </div>
+  </div>
+</div>

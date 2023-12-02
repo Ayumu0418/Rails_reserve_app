@@ -1,0 +1,25 @@
+<div class="user_container">
+  <h2>設定</h2>
+  <div class="account_container">
+    <ul class="account_profile_container">
+      <li><%= link_to "アカウント", account_path, class: "account_link" %></li>
+      <li><%= link_to "プロフィール", profile_path, class: "profile_link" %></li>
+    </ul>
+    <div class="account_edit_info_container">
+      <div class="account_edit_container">
+        <h2>アカウント</h2>
+        <h3><%= link_to "編集", edit_path, class: "edit_account_link" %></h3>
+      </div>
+      <div class="account_info_container">
+        <ul class="user_email">
+          <li>メールアドレス</li> 
+          <li><%= Current.user.email %></li>
+        </ul>
+        <ul class="user_password">
+          <li>パスワード</li>
+          <li>**********</li> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

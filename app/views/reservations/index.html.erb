@@ -1,0 +1,42 @@
+<% if flash[:notice] %>
+      <p class="reservation_notice"><%= flash[:notice] %></p>
+<% end %>
+
+<h1 class="reservation_lead">予約済み一覧</h1>
+
+<table class="reservation_table">
+  <tbody class="reservation_list"> 
+    <tr class=reservations_table_colum>
+      <th class="hotel_image">画像</th>
+      <th class="hotel_name">施設名</th>
+      <th class="hotel_detail">紹介文</th>
+      <th class="hotel_price">合計料金</th>
+      <th class="check_in">チェックイン</th>
+      <th class="checl_out">チェックアウト</th>
+      <th class="reserve_time">予約確定日時</th>
+      <th class="reserve_again">再予約</th>
+      <th class="destroy_reserve">予約を削除</th>
+    </tr>
+    <% @reservations.each do |reservation| %>
+      <% room = reservation.room %>
+      <tr>
+        <td> 
+          <% if room.hotel_image.attached? %>
+            <%= image_tag room.hotel_image.variant(resize: "140x100"), class: "hotel_image", style: "width: 140px; height: 100px; object-fit: cover;" %>
+          <% else %>
+            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png', size: '140x100', style: "width: 140px; height: 100px; object-fit: cover;" %>
+          <% end %>
+        </td>
+        <td class="td_hotel_name"><%= link_to room.hotel_name, room %></td>
+        <td> <%= room.hotel_detail %></td>
+        <td> <%= number_to_currency(room.hotel_price * reservation.people * (reservation.end - reservation.start).to_i, unit: "円", format: "%n%u",precision: 0) %>
+        </td>
+        <td> <%= reservation.start.strftime('%Y/%m/%d') %></td>
+        <td> <%= reservation.end.strftime('%Y/%m/%d') %></td>
+        <td class="td_updated_at"> <%= reservation.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td> <%= link_to "再予約する", edit_reservation_path(reservation), class: "edit_reservation" %></td>
+        <td> <%= button_to "削除", reservation, method: :delete, onclick: "return confirm('本当に削除しますか?');", form: { "data-turbo" => "false" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

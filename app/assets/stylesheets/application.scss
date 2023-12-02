@@ -1,0 +1,157 @@
+@import 'top';
+@import 'users';
+@import 'signup';
+@import 'rooms';
+@import 'sessions';
+@import 'reservations';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  min-width: fit-content;
+}
+
+.container table {
+  margin-bottom: 40px;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: #1c1d3b;
+  margin: 0;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.header_container .top_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_container .top_logo img {
+  width: 280px;
+  height: auto;
+}
+
+.avatar_image {
+  border-radius: 50%;
+}
+
+.header_container #dropdown_button {
+  background: #1c1d3b;
+  cursor: pointer;
+}
+.header_container #dropdown_button.button span {
+  display: flex;
+}
+
+.header_container #dropdown_button.button span li  {
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  color: white;
+}
+
+.header_container .dropdown_menu .dropdown_content {
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.header_container ul  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  list-style: none;
+}
+
+.header_container .login {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  padding-right: 24px;
+}
+
+.header_container .signup_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: red;
+  list-style: none;
+  height: 40px;
+  width: 92px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+}
+
+footer {
+  background: #1c1d3b;
+  margin-top: auto;
+  width: 100%;
+}
+
+footer .footer_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  padding-left: 24px;
+  height: 100px;
+}
+
+footer .footer_container .footer_logo img {
+  width: 280px;
+  height: auto;
+}
+
+footer .footer_container small{
+  color: white;
+}
+
+// ドロップボタン関係
+.dropdown_menu {
+  display: none;
+}
+
+.dropdown_content {
+  width: 160px;
+  text-align: center;
+}
+
+.is_active {
+  z-index: 4; 
+  display: block;
+  transform: translateX(100%);
+  transform: translateY(10%);
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+// ※top.scssより
+hero .top_hero_background_image {
+  position: relative; 
+  z-index: 1;
+}

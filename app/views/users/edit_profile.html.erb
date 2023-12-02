@@ -1,0 +1,54 @@
+<div class="user_account_edit_container">
+  <%= form_with model: Current.user, url: edit_profile_path do |form| %>
+    <% if Current.user.errors.any? %>
+      <div class="alert alert-danger">
+        <% Current.user.errors.full_messages.each do |message|  %>
+          <div>
+            <%= message %>
+          </div>
+        <% end  %>
+      </div>
+    <% end %>
+    <div class="user_container" style="padding: 0;">
+      <h2 style="padding: 0 40px;">設定</h2>
+      <div class="account_container" style="padding: 0 40px;">
+        <ul class="account_profile_container" style="justify-content: start;">
+          <li><%= link_to "アカウント", account_path, class: "account_link" %></li>
+          <li><%= link_to "プロフィール", profile_path, class: "profile_link" %></li>
+        </ul>
+
+        <div class="account_edit_info_container">
+          <div class="account_edit_container">
+            <h2>プロフィール</h2>
+          </div>
+
+          <div class="account_info_container">
+            <ul class="user_avatar">
+              <li>アイコン画像</li> 
+              <li>
+                <% if Current.user.image.attached? %>
+                  <%= image_tag Current.user.image.variant(resize: '40x40'), class: "avatar_image" %>
+                <% else %>
+                  <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', size: '40x40' %>
+                <% end %>
+              </li>
+              <li><%= form.file_field :image, accept: "image/*" %></li>
+            </ul>
+            <ul class="user_name">
+              <li>名前</li>
+              <li><%= form.text_field :user_name, placeholder: "名前を入力してください", class: "name_form" %></li> 
+            </ul>
+            <ul class="user_introduction">
+              <li>自己紹介</li>
+              <li><%= form.text_area :introduction, placeholder: "自己紹介を入力", class: "introduction_form", style: "resize: vertical; height: 96px;" %></li> 
+            </ul>
+            <div class = "submit_button" style="display: flex;">
+              <%= form.submit "保存", class:"save_button" %>
+              <%= link_to "キャンセル", :account, class: "cancel_button" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,39 @@
+<div class="signup_page"> 
+ <div class="signup_container">
+    <h2>新規登録</h2>
+    <%= form_with model: @user, url: signup_path do |form| %>
+      <ul class="email">
+        <li>ユーザー名</li>
+        <li><%= form.text_field :user_name %></li>
+        <% if @user && @user.errors.include?(:user_name) %>
+          <small style="color: red;"><%= @user.errors.full_messages_for(:user_name).first %></small>
+        <% end %>
+      </ul>
+      <ul class="password">
+        <li>メールアドレス</li>
+        <li><%= form.text_field :email %></li>
+        <% if @user && @user.errors.include?(:email) %>
+         <small style="color: red;"><%= @user.errors.full_messages_for(:email).first %></small>
+        <% end %>
+      </ul>
+      <ul class="password">
+        <li>パスワード</li>
+        <li><%= form.password_field :password %></li>
+        <% if @user && @user.errors.include?(:password) %>
+         <small style="color: red;"><%= @user.errors.full_messages_for(:password).first %></small>
+        <% end %>
+      </ul>
+      <ul class="password_confirmation">
+        <li>確認用パスワード</li>
+        <li><%= form.password_field :password_confirmation %></li>
+        <% if @user && @user.errors.include?(:password_confirmation) %>
+         <small style="color: red;"><%= @user.errors.full_messages_for(:password_confirmation).first %></small>
+        <% end %>
+      </ul>
+      <ul class="signup_form_button">
+        <li><%= form.submit "新しいアカウントを作成", class: "save_button" %></li>
+        <li><%= link_to "アカウントをお持ちの方はログイン", login_path, class:"login_path" %></li>
+      </ul>
+    <% end  %>
+  </div>
+</div>

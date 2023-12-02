@@ -2,15 +2,100 @@
 <html>
   <head>
     <title>ReserveApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<script>
+			$(document).ready(function () {
+				// ドロップダウンメニューのボタン
+				var dropdownButton = $("#dropdown_button");
+				// ドロップダウンメニュー本体
+				var dropdownMenu = $("#dropdown_menu");
+		
+				// ボタンがクリックされたときの処理
+				$("#dropdown_button").on("click", function() {
+					dropdownMenu.toggleClass("is_active");
+				});
+		
+				// ドキュメント全体をクリックしたとき、ドロップダウンメニューが非表示になるようにする
+				$(document).click(function (event) {
+					if (!$(event.target).closest(".dropdown").length) {
+						dropdownMenu.removeClass("is_active");
+					}
+				});
+			});
+		</script>
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+	<div class="container">
+    <header>
+			<div class="header_container">
+				<a class="top_logo" href="<%= root_path %>"><img src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="top_logo"></a>
+				<% if Current.user %>
+					<div class="dropdown">
+					
+						<span id="dropdown_button" class="button" aria-haspopup="true" aria-controls="dropdown_menu">
+							<span>
+								<% if Current.user.image.attached? %>
+									<li class="current_avatar">								
+										<%= image_tag Current.user.image.variant(resize: '40x40'), class: "avatar_image" %>
+									</li>
+									<li>
+										<%= Current.user.user_name %>
+									</li>
+								<% else %>
+									<li>
+										<%= image_tag 'https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png', size: "40x40" , class: "avatar_image"%>
+									</li>
+									<li>
+										<%= Current.user.user_name %>
+									</li>
+								<% end %>
+							</span>
+						</span>
+
+						<div class="dropdown_menu" id="dropdown_menu" role="menu">
+							<div class="dropdown_content">
+								<a href="<%= new_path %>" class="dropdown_item is_active">
+								施設の新規登録
+								</a>
+								<a href="<%= reservations_path %>" class="dropdown_item is_active">
+									予約一覧
+								</a>
+								<a href="<%= myroom_index_url %>" class="dropdown_item is_active">
+									登録した施設一覧
+								</a>
+								<a href="<%= account_path %>" class="dropdown_item is_active">
+									アカウント設定
+								</a>
+								<a href="<%= logout_path %>" class="dropdown_item is_active">
+									ログアウト
+								</a>
+							</div>
+						</div>
+					</div>
+				<% else %>
+				<ul>
+					<li class="not_login_button">
+							<%= link_to "ログイン", login_url, class: "login" %>
+					</li>
+					<li class="registration">
+							<%= link_to "新規登録", signup_url, class: "button signup_button" %>
+					</li>
+				</ul>
+				<% end  %>
+			</div>
+		</header>
+  	<%= yield %>
+		<footer>
+			<div class="footer_container">
+				<a class="footer_logo" href="<%= root_path %>"><img src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="top_logo"></a>
+				<small>Copyright © Potepan Share 2023 All rights reserved</small>
+			</div>
+		</footer>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,115 @@
+.user_container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.user_container .account_container  {
+  gap: 36px;
+}
+
+.user_container .account_container .account_profile_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  width: 30%;
+}
+
+.user_container .account_container {
+  display: flex;
+}
+
+.user_container .account_container .account_profile_container li {
+  display: flex;
+  align-items: center;
+  border: 2px solid lightgray;
+  color: black;
+  padding: 20px;
+}
+
+.user_container .account_container .account_profile_container li a {
+  text-decoration: none;
+  color: black;
+}
+
+.user_container .account_container .account_edit_info_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.user_container .account_container .account_edit_info_container .account_edit_container h3 .edit_account_link, .edit_profile_link {
+  text-decoration: none;
+  color: blue;
+}
+
+.user_container .account_container .account_edit_info_container .account_edit_container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 28px;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container ul {
+  display: flex;
+  list-style: none;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container ul li {
+  width: 25%;
+}
+
+// profile.html
+.user_container .account_container .account_edit_info_container .account_info_container .user_icon li {
+  margin: auto 0;
+}
+
+// edit.html
+.user_container .account_container .account_edit_info_container .account_info_container .user_email li, .user_password li {
+  margin: auto 0;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container .user_email li .email_form, .user_password li .password_form {
+  width: 296%;
+  height: 36px;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container .submit_button {
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 12px;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container .submit_button .cancel_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  height: 48px;
+  width: 120px;
+  text-decoration: none;
+  color: black; 
+  border: 2px solid lightgray;
+  cursor: pointer;
+}
+
+.user_container .account_container .account_edit_info_container .account_info_container .submit_button .save_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: red; 
+  color: white; 
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  height: 48px;
+  width: 80px;
+}
+
+// edit_profile.html
+.user_container .account_container .account_edit_info_container .account_info_container .user_avatar li, .user_name li .name_form, .user_introduction li .introduction_form {
+  width: 296%;
+  height: 36px;
+}
